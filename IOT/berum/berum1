@@ -1,0 +1,6 @@
+Features
+Here’s some main features of the DS18B20 temperature sensor:
+
+Comunicates over 1-wire bus communication
+Operating range temperature: -55ºC to 125ºC
+Accuracy +/-0.5 ºC (between the range -10ºC to 85ºC)

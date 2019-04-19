@@ -2,41 +2,29 @@
 #include "Arduino.h"
 #include "ESP8266.h"
 #include "dweet.h"
-#include "PIR.h"
+//#include "PIR.h"
 #include "Servo.h"
-#include "PiezoSpeaker.h"
+//#include "PiezoSpeaker.h"
 
 
 // Pin Definitions
 #define ESP8266_PIN_RX	10
 #define ESP8266_PIN_TX	11
-#define PIR_PIN_SIG	4
-#define SERVOSM_PIN_SIG	3
-#define THINSPEAKER_PIN_POS	2
 
 
 
-const int ServoRestPosition   = 20;  //Starting position
-const int ServoTargetPosition = 150; //Position when event is detected
-unsigned int HoorayLength          = 6;                                                      // amount of notes in melody
-unsigned int HoorayMelody[]        = {NOTE_C4, NOTE_E4, NOTE_G4, NOTE_C5, NOTE_G4, NOTE_C5}; // list of notes. List length must match HoorayLength!
-unsigned int HoorayNoteDurations[] = {8      , 8      , 8      , 4      , 8      , 4      }; // note durations; 4 = quarter note, 8 = eighth note, etc. List length must match HoorayLength!
 
-unsigned int comeLength          = 3;
-unsigned int comeMelody[]        = {NOTE_C5, NOTE_G5, NOTE_C5};
-unsigned int comeNoteDurations[] = {8      , 8      , 8};
+
+
 
 ESP8266 wifi(ESP8266_PIN_RX,ESP8266_PIN_TX);
 Servo servo;
-PIR pir(PIR_PIN_SIG);
-PiezoSpeaker PiezoSpeaker(THINSPEAKER_PIN_POS);
 
-int pirCounter = 0;
 // ====================================================================
 // vvvvvvvvvvvvvvvvvvvv ENTER YOUR WI-FI SETTINGS  vvvvvvvvvvvvvvvvvvvv
 //
-const char *SSID     = "WIFI-SSID"; // Enter your Wi-Fi name 
-const char *PASSWORD = "PASSWORD" ; // Enter your Wi-Fi password
+const char *SSID     = "Tech hub"; // Enter your Wi-Fi name 
+const char *PASSWORD = "t@chhub2019@" ; // Enter your Wi-Fi password
 //
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 // ====================================================================
@@ -60,15 +48,12 @@ void setup() {
         Serial.println(F("Wifi Init failed. Check configuration."));
         while (true) ; // loop eternally
     }
-    servo.attach(SERVOSM_PIN_SIG);
-    servo.write(ServoRestPosition);
-    delay(100);
-    servo.detach();
+
 }
 
 /* This code is the main logic of your circuit. It defines the interaction between the components you selected. After setup, it runs over and over again, in an eternal loop. */
 void loop() {
-
+/*
     bool pirVal = pir.read();
     
     //SET DWEETS
@@ -131,17 +116,9 @@ void loop() {
           delay(500);
         }
         
-        servo.attach(SERVOSM_PIN_SIG);
-        servo.write(ServoTargetPosition);
-        delay(1000);
-        servo.write(ServoRestPosition);
-        delay(1000);
-        servo.detach();
-        
-        PiezoSpeaker.playMelody(HoorayLength, HoorayMelody, HoorayNoteDurations);  // 5. plays the Hurray melody. to play a different melody, modify HoorayLength, HoorayMelody and HoorayNoteDuration above.                    
-        
-        delay(100);
+
     }
+*/
 }
 
 /*******************************************************
